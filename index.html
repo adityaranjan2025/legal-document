@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legal Document AI - Demystifying Legal Language</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">Legal Document AI</h1>
+                <p class="tagline">Transform complex legal documents into plain English</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="container">
+            <!-- Input Section -->
+            <section class="input-section">
+                <div class="card">
+                    <div class="card__header">
+                        <h2>Document Analysis</h2>
+                        <p>Paste your legal document text or upload a file to get started</p>
+                    </div>
+                    <div class="card__body">
+                        <!-- Text Input Area -->
+                        <div class="form-group">
+                            <label for="legal-text" class="form-label">Legal Document Text</label>
+                            <textarea 
+                                id="legal-text" 
+                                class="form-control document-input" 
+                                rows="8" 
+                                placeholder="Paste your legal document text here..."
+                            ></textarea>
+                            <div class="input-meta">
+                                <span class="character-count">0 characters</span>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="input-actions">
+                            <div class="action-buttons">
+                                <button class="btn btn--outline" id="file-upload-btn">
+                                    📁 Upload File
+                                </button>
+                                <button class="btn btn--secondary" id="sample-text-btn">
+                                    📄 Load Sample
+                                </button>
+                            </div>
+                            <button class="btn btn--primary btn--lg" id="analyze-btn" disabled>
+                                🔍 Analyze Document
+                            </button>
+                        </div>
+
+                        <!-- File Upload Input (Hidden) -->
+                        <input type="file" id="file-input" accept=".txt,.pdf,.doc,.docx" style="display: none;">
+
+                        <!-- Sample Documents Modal -->
+                        <div class="modal hidden" id="samples-modal">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h3>Choose Sample Document</h3>
+                                    <button class="modal-close" id="close-samples">&times;</button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="sample-documents" id="sample-documents">
+                                        <!-- Sample documents will be populated by JS -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Processing Section -->
+            <section class="processing-section hidden" id="processing-section">
+                <div class="card">
+                    <div class="card__body">
+                        <div class="processing-content">
+                            <div class="processing-animation">
+                                <div class="spinner"></div>
+                            </div>
+                            <h3 class="processing-title">Analyzing Your Document</h3>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="progress-fill"></div>
+                            </div>
+                            <p class="processing-status" id="processing-status">Initializing analysis...</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section hidden" id="results-section">
+                <div class="card">
+                    <div class="card__header results-header">
+                        <h2>Analysis Results</h2>
+                        <div class="results-actions">
+                            <button class="btn btn--outline btn--sm" id="print-btn">🖨️ Print</button>
+                            <button class="btn btn--outline btn--sm" id="copy-btn">📋 Copy</button>
+                            <button class="btn btn--secondary btn--sm" id="clear-btn">🗑️ Clear</button>
+                        </div>
+                    </div>
+                    <div class="card__body">
+                        <!-- Tab Navigation -->
+                        <div class="tabs">
+                            <button class="tab-button active" data-tab="summary">Plain English Summary</button>
+                            <button class="tab-button" data-tab="terms">Key Terms</button>
+                            <button class="tab-button" data-tab="insights">Document Insights</button>
+                            <button class="tab-button" data-tab="actions">Action Items</button>
+                        </div>
+
+                        <!-- Tab Content -->
+                        <div class="tab-content">
+                            <div class="tab-panel active" id="summary-panel">
+                                <h3>Plain English Summary</h3>
+                                <div class="summary-content" id="summary-content">
+                                    <!-- Summary will be populated by JS -->
+                                </div>
+                            </div>
+
+                            <div class="tab-panel" id="terms-panel">
+                                <h3>Key Legal Terms</h3>
+                                <div class="terms-list" id="terms-list">
+                                    <!-- Terms will be populated by JS -->
+                                </div>
+                            </div>
+
+                            <div class="tab-panel" id="insights-panel">
+                                <h3>Document Insights</h3>
+                                <div class="insights-content" id="insights-content">
+                                    <!-- Insights will be populated by JS -->
+                                </div>
+                            </div>
+
+                            <div class="tab-panel" id="actions-panel">
+                                <h3>Action Items</h3>
+                                <div class="actions-content" id="actions-content">
+                                    <!-- Action items will be populated by JS -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Legal Document AI. Powered by advanced language processing.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
